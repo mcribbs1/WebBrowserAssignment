@@ -1,0 +1,92 @@
+<!doctype html>
+<!-- Madelyn Cribbs — IT 3203 — concepts.html -->
+<!-- Use Engligh language - encode characters - fit screen width on mobile devices - set page title - connect external CSS file -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Browsers — Key Concepts</title>
+  <link rel="stylesheet" href="styles.css" />
+  
+  <!-- Start content - create header - show main title - hamburger menu-->
+</head>
+<body>
+<header class="site-header">
+  <h1>Web Browsers — Key Concepts</h1>
+
+  <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle navigation">☰ Menu</button>
+
+  <!-- Naviagtion - links styled as buttons -->
+  <nav id="main-menu" class="nav-bar" aria-label="Primary navigation">
+    <a href="index.html">Home</a>
+    <a href="history.html">History</a>
+    <a href="mechanics.html">How Browsers Work</a>
+    <a href="today.html">Today & Trends</a>
+    <a href="concepts.html">Key Concepts</a>
+    <a href="about.html">About & Contact</a>
+    <a href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="page-wrap">
+  <!-- Title - Create two columns - Create info cards with title and description - Content inside page-wrap for a consistent width and spacing -->
+  <article class="content">
+    <h2>Key Concepts Explained</h2>
+
+    <section class="grid-2">
+      <div class="card">
+        <h3>HTTP vs. HTTPS</h3>
+        <p>HTTPS encrypts traffic with TLS for privacy and integrity; HTTP does not.</p>
+      </div>
+
+      <div class="card">
+        <h3>DOM (Document Object Model)</h3>
+        <p>A tree representation of the page that scripts and styles use to affect rendering.</p>
+      </div>
+
+      <div class="card">
+        <h3>Rendering Engine</h3>
+        <p>Parses HTML and CSS to draw pixels on the screen (e.g., Blink, WebKit, Gecko).</p>
+      </div>
+
+      <div class="card">
+        <h3>JavaScript Engine</h3>
+        <p>Runs JS code and interacts with the DOM for interactivity (e.g., V8, SpiderMonkey).</p>
+      </div>
+
+      <div class="card">
+        <h3>Cookies vs. Cache</h3>
+        <p>Cookies store small pieces of site data; cache stores resource copies to load faster.</p>
+      </div>
+
+      <div class="card">
+        <h3>WebAssembly</h3>
+        <p>A low-level binary format that lets compiled code run efficiently inside browsers.</p>
+      </div>
+    </section>
+  </article>
+</main>
+
+<!-- General footer -->
+<footer class="site-footer">
+  <small>
+    This is a class project (IT 3203).
+    <a href="https://validator.w3.org/" target="_blank" rel="noopener">Validate HTML</a> ·
+    <a href="https://jgzheng.github.io/IT3203/" target="_blank" rel="noopener">Course Site</a>
+  </small>
+</footer>
+
+<!-- End of page - JavaScript functions -->
+<script>
+const btn = document.querySelector('.menu-toggle');
+const menu = document.getElementById('main-menu');
+if (btn && menu) {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    menu.classList.toggle('open');
+  });
+}
+</script>
+</body>
+</html>

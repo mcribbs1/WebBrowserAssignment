@@ -1,0 +1,117 @@
+<!doctype html>
+<!-- Madelyn Cribbs — IT 3203 — index.html -->
+<!-- Use Engligh language - encode characters - fit screen width on mobile devices - set page title - connect external CSS file -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Browsers — Index</title>
+  <link rel="stylesheet" href="styles.css" />
+  
+  <!-- Start content - create header - show main title - hamburger menu-->
+</head>
+<body>
+<header class="site-header">
+  <h1>Web Browsers — Index</h1>
+
+  <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle navigation">☰ Menu</button>
+
+  <!-- Naviagtion - links styled as buttons -->
+  <nav id="main-menu" class="nav-bar" aria-label="Primary navigation">
+    <a href="index.html">Home</a>
+    <a href="history.html">History</a>
+    <a href="mechanics.html">How Browsers Work</a>
+    <a href="today.html">Today & Trends</a>
+    <a href="concepts.html">Key Concepts</a>
+    <a href="about.html">About & Contact</a>
+    <a href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="page-wrap">
+  <!-- Content inside page-wrap for a consistent width and spacing -->
+
+  <!-- Give unique identifier for styling/linking - insert image - website overview -->
+ <section id="intro" class="lead">
+  <img 
+    class="hero-img" 
+    src="https://www.vinu.edu/documents/2799529/0/browser+icons.png/browser%20iconsedb6.png?t=1456854691735" 
+    alt="Modern web browser icons that represent Chrome, Firefox, Edge, and Safari." 
+  />
+  <p>
+    Web browsers are what we use everyday to access the internet. This site summarizes how browsers began,
+    how they work, and where they're headed.
+  </p>
+</section>
+
+  <section aria-labelledby="key-terms-heading">
+    <h2 id="key-terms-heading">Key Terms</h2>
+    <ul class="key-terms">
+      <li>HTTP / HTTPS</li>
+      <li>Rendering Engine</li>
+      <li>DOM</li>
+      <li>JavaScript Engine</li>
+      <li>Cookies vs. Cache</li>
+      <li>WebAssembly</li>
+      <li>Sandboxing</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="table-heading">
+    <h2 id="table-heading">Major Browsers & Engines</h2>
+
+    <!-- Create table -->
+    <table class="data-table">
+      <caption class="sr-only">Table listing common browsers, their engines, and notes</caption>
+      <thead><tr><th scope="col">Browser</th><th scope="col">Engine</th><th scope="col">Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Chrome</td><td>Blink + V8</td><td>Rapid release cycle, large market share</td></tr>
+        <tr><td>Safari</td><td>WebKit + JavaScriptCore</td><td>Default on iOS/macOS</td></tr>
+        <tr><td>Firefox</td><td>Gecko + SpiderMonkey</td><td>Open-source, strong privacy features</td></tr>
+        <tr><td>Edge</td><td>Blink + V8</td><td>Chromium-based (since 2019)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+<!-- Create two column layout - hold card information - content - links to other pages -->
+  <section class="grid-2">
+    <article class="card">
+      <h3>Where to Begin</h3>
+      <p>Use the navigation bar to explore the history, mechanics, and current trends. The
+      <em>Key Concepts</em> page defines core terms in short, clear language.</p>
+    </article>
+    <article class="card">
+      <h3>How to Read</h3>
+      <ol>
+        <li>Start with the <a href="history.html">History</a> page for context.</li>
+        <li>Move to <a href="mechanics.html">How Browsers Work</a> to understand the pipeline.</li>
+        <li>Finish with <a href="today.html">Today & Trends</a> to see what's next.</li>
+      </ol>
+    </article>
+  </section>
+</main>
+
+<!-- General footer -->
+<footer class="site-footer">
+  <small>
+    This is a class project (IT 3203).
+    <a href="https://validator.w3.org/" target="_blank" rel="noopener">Validate HTML</a> ·
+    <a href="https://jgzheng.github.io/IT3203/" target="_blank" rel="noopener">Course Site</a>
+  </small>
+</footer>
+
+<!-- End of page - JavaScript functions -->
+<script>
+// Simple hamburger toggle for small screens
+const btn = document.querySelector('.menu-toggle');
+const menu = document.getElementById('main-menu');
+if (btn && menu) {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    menu.classList.toggle('open');
+  });
+}
+</script>
+</body>
+</html>

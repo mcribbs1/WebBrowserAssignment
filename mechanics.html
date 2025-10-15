@@ -1,0 +1,66 @@
+<!doctype html>
+<!-- Madelyn Cribbs — IT 3203 — mechanics.html -->
+<!-- Use Engligh language - encode characters - fit screen width on mobile devices - set page title - connect external CSS file -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Browsers — How Browsers Work</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Start content - create header - show main title - hamburger menu-->
+</head>
+<body>
+<header class="site-header">
+  <h1>Web Browsers — How Browsers Work</h1>
+
+  <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle navigation">☰ Menu</button>
+
+  <!-- Naviagtion - links styled as buttons -->
+  <nav id="main-menu" class="nav-bar" aria-label="Primary navigation">
+    <a href="index.html">Home</a>
+    <a href="history.html">History</a>
+    <a href="mechanics.html">How Browsers Work</a>
+    <a href="today.html">Today & Trends</a>
+    <a href="concepts.html">Key Concepts</a>
+    <a href="about.html">About & Contact</a>
+    <a href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="page-wrap">
+  <!-- Content inside page-wrap for a consistent width and spacing -->
+  <article class="content">
+    <h2>The Browser Pipeline</h2>
+
+    <p>Although browsers appear simple on the surface, they are made up of many important systems that work together. When a person types in a web address and presses enter, the browser begins a complex process that takes place in just fractions of a second. The first step is communication with the internet. The browser sends a request to a web server using protocols such as HTTP or HTTPS. HTTPS is the secure version of the protocol, encrypting data to protect users’ privacy. Once the sever responds, the browser begins to interpret the data it receives (IETF). </p>
+
+    <p>The rendering engine plays a central role in this process. It reads the code written in HTML, which defined the structure of the page, and CSS, which describes the page’s style and layout. The rendering engine then constructs the Document Object Model, or DOM, which is essentially a map of the webpage. Different browsers use different rendering engines. For example, Chrome and Edge use Blink, Safari uses WebKit, and Firefox uses Gecko (Shklar and Rosen 61). The JavaScript engine is another critical part of the browser. JavaScript is the programming language that adds interactivity to web pages. Without it, websites would be static documents. The JavaScript engine executes the code behind features like dropdown menus, animation, online forms, and entire web applications like Google Docs. Over the years, JavaScript engines have become much faster thanks to just-in-time compilation, allowing browsers to handle tasks that once required desktop software (Shklar and Rosen 98). </p>
+
+    <p>Browsers also manage data storage. They save cookies that help websites remember user preferences and login details. They also use caching to store frequently accessed resources which makes websites load faster on repeat visits. Local storage and databases like IndexedDB allow more complex web apps to function offline or with reduced internet connectivity (W3C). Another major focus of browser design is security. Modern browsers isolate different websites into separate processes (sandboxing) so that if one tab is compromised by malicious code, it cannot easily affect the rest of the system. Browsers also warn users about unsafe websites and block pop-ups or suspicious downloads (Mozilla Foundation) Altogether, a browser’s job is to retrieve information from the internet, interpret it, and present it to the user in a way that is both attractive and safe. </p>
+  </article>
+</main>
+
+<!-- General footer -->
+<footer class="site-footer">
+  <small>
+    This is a class project (IT 3203).
+    <a href="https://validator.w3.org/" target="_blank" rel="noopener">Validate HTML</a> ·
+    <a href="https://jgzheng.github.io/IT3203/" target="_blank" rel="noopener">Course Site</a>
+  </small>
+</footer>
+
+<!-- End of page - JavaScript functions -->
+<script>
+const btn = document.querySelector('.menu-toggle');
+const menu = document.getElementById('main-menu');
+if (btn && menu) {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    menu.classList.toggle('open');
+  });
+}
+</script>
+</body>
+</html>

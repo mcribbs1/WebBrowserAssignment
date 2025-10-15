@@ -1,0 +1,81 @@
+<!doctype html>
+<!-- Madelyn Cribbs — IT 3203 — history.html -->
+<!-- Use Engligh language - encode characters - fit screen width on mobile devices - set page title - connect external CSS file -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Browsers — History</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Start content - create header - show main title - hamburger menu-->
+</head>
+<body>
+<header class="site-header">
+  <h1>Web Browsers — History</h1>
+
+  <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle navigation">☰ Menu</button>
+
+  <!-- Naviagtion - links styled as buttons -->
+  <nav id="main-menu" class="nav-bar" aria-label="Primary navigation">
+    <a href="index.html">Home</a>
+    <a href="history.html">History</a>
+    <a href="mechanics.html">How Browsers Work</a>
+    <a href="today.html">Today & Trends</a>
+    <a href="concepts.html">Key Concepts</a>
+    <a href="about.html">About & Contact</a>
+    <a href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="page-wrap">
+  <!-- History content - Include image - Content inside page-wrap for a consistent width and spacing -->
+  <article class="content">
+    <h2>From Early Prototypes to the Browser Wars</h2>
+
+    <p>When most users think about using the internet, the first thing that comes to mind is opening a web browser. A web browser is a software application that allows people to type in a web address, click on links, watch videos, shop online, and use social media. While there are many important parts of the internet working behind the scenes like serves, protocols, and domain names, the browser is what connects everyday users to all of it. Without browsers, the web as we know it would not be possible. </p>
+
+    <p>The very first web browser was created in 1990 by Tim Berners-Lee, who also invented the World Wide Web. His program called WorldWideWeb (later named Nexus), demonstrated that information could be linked together using “hyperlinks”. However, this browser was mostly experimental and not widely used outside of research circles. It did, however, prove that the idea of a connected network of documents was possible (Berners-Lee). </p>
+
+    <p>In 1993, a browser called Mosaic was released at the University of Illinois. Mosaic was the first browser that caught the attention of the general public. It’s most important innovation was the ability to display both text and images on the same page which made the internet more engaging and visually appealing. Before Mosaic, many people considered the web to be too technical and dull to use. Mosaic helped spark mainstream interest (NCSA). Some of the developers from Mosaic went on to create Netscape Navigator which quickly became the most popular browser in the mid 1990s. Netscape played a major role in making the internet a household technology and helped drive the “.com” boom (Cusumano and Yoffie). </p>
+
+    <p>Microsoft soon recognized the importance of browsers and entered the market as a fierce competitor with Internet Explorer in 1995. Because it was bundled for free with the Windows operating system, Internet Explorer gained an immediate advantage. Over the following years, Microsoft pushed Internet Explorer aggressively and Netscape struggled to compete. This competition, known as the “browser wars,” led to a period of rapid pace innovation but it also caused problems because both companies introduced proprietary features what were not a part of official web standards. By the early 2000s, Internet Explorer has taken more than 90% of the market share, leaving very little room for the competition (Shklar and Rosen 55).</p>
+
+    <p>However, Microsoft’s dominance began to weaken as users grew frustrated with Internet Explorer’s security flaws and lack of updates. In 2004, Mozilla released FireFox, an open-source browser that offered better speed, security, and adherence to web standards (Mozilla Foundation). Firefox gained a loyal following and challenged Internet Explorer’s dominance. Four years later in, in 2008, Google launched Chrome. Chrome stood out for it’s simple design, automatic updates, and fast performance thanks to its V8 JavaScript engine. It also introduced a multi-process system that made the browser more stable (Google). Chrome’s speed and reliability quickly attracted users and by 2012, it had surpassed Internet Explorer to become the most widely used browser (StatCounter, “2012 Browser Market Share”). </p>
+
+    <p>Since then, Chrome has maintained its lead, while Safari, FireFox, and Microsoft Edge have held smaller but important shares of the market. Edge, which originally used Microsoft’s own engine, switched to Google’s Chromium in 2019 to improve its compatibility. Today’s browser market is less competitive than it once was, but alternative browsers such as Brave and Vivaldi continue to push new ideas in areas like privacy and customization.</p>
+
+    <figure>
+      <img 
+        src="https://media.geeksforgeeks.org/wp-content/uploads/20231006182501/Timeline-of-Browsers.webp" 
+        alt="Timeline infographic showing the evolution of major web browsers." 
+        class="history-image" 
+      />
+      <figcaption>Timeline showing the evolution of major web browsers. Image courtesy of GeeksforGeeks.</figcaption>
+    </figure>
+  </article>
+</main>
+
+<!-- General footer -->
+<footer class="site-footer">
+  <small>
+    This is a class project (IT 3203).
+    <a href="https://validator.w3.org/" target="_blank" rel="noopener">Validate HTML</a> ·
+    <a href="https://jgzheng.github.io/IT3203/" target="_blank" rel="noopener">Course Site</a>
+  </small>
+</footer>
+
+<!-- End of page - JavaScript functions -->
+<script>
+const btn = document.querySelector('.menu-toggle');
+const menu = document.getElementById('main-menu');
+if (btn && menu) {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    menu.classList.toggle('open');
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<!-- Madelyn Cribbs — IT 3203 — references.html -->
+<!-- Use Engligh language - encode characters - fit screen width on mobile devices - set page title - connect external CSS file -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Browsers — References & Resources</title>
+  <link rel="stylesheet" href="styles.css" />
+
+<!-- Start content - create header - show main title - hamburger menu-->
+</head>
+<body>
+<header class="site-header">
+  <h1>Web Browsers — References & Resources</h1>
+
+  <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle navigation">☰ Menu</button>
+
+  <!-- Main Navigation -->
+  <nav id="main-menu" class="nav-bar" aria-label="Primary navigation">
+    <a href="index.html">Home</a>
+    <a href="history.html">History</a>
+    <a href="mechanics.html">How Browsers Work</a>
+    <a href="today.html">Today & Trends</a>
+    <a href="concepts.html">Key Concepts</a>
+    <a href="about.html">About & Contact</a>
+    <a href="references.html">References</a>
+  </nav>
+</header>
+
+<!-- Content inside page-wrap for a consistent width and spacing -->
+  <article class="content">
+<main class="page-wrap">
+  <article class="content">
+    <h2>References & Learning Resources</h2>
+    <p>
+      The following references and sources were used to research, write, and build this website project for IT 3203. They include books, official documentation, and reputable websites related to the history, mechanics, and modern development of web browsers.
+    </p>
+
+    <ul>
+      <li>Berners-Lee, Tim. <em>WorldWideWeb Browser Project</em>, CERN, 1990.</li>
+      <li>Cusumano, Michael A., and David B. Yoffie. <em>Competing on Internet Time: Lessons from Netscape and Its Battle with Microsoft.</em> Free Press, 1998.</li>
+      <li>Mozilla Foundation. <em>Firefox Project Documentation</em>, Mozilla, 2004.</li>
+      <li>NCSA. <em>Mosaic Browser History</em>, University of Illinois, 1993.</li>
+      <li>Shklar, Leon, and Richard Rosen. <em>Web Application Architecture: Principles, Protocols, and Practices.</em> Wiley, 2003.</li>
+      <li>StatCounter. “2024 Browser Market Share.” <em>StatCounter Global Stats</em>, 2024.</li>
+      <li>W3C. <em>Web Storage Specification</em>, World Wide Web Consortium, 2016.</li>
+      <li>IETF. <em>RFC 9110: HTTP Semantics</em>, Internet Engineering Task Force, 2022.</li>
+    </ul>
+<h2>Images & Media Sources</h2>
+<ul>
+  <li>Vincennes University. <em>Browser Icons</em>. Vinu.edu, 2016. <a href="https://www.vinu.edu" target="_blank" rel="noopener">https://www.vinu.edu</a>.</li>
+  <li>GeeksforGeeks. <em>Timeline of Browsers</em>. GeeksforGeeks.org, 6 Oct. 2023. <a href="https://www.geeksforgeeks.org" target="_blank" rel="noopener">https://www.geeksforgeeks.org</a>.</li>
+  <li>LambdaTest Blog. <em>Browser Market Share & Trends</em>. Lambdatest.com, 2019. <a href="https://www.lambdatest.com" target="_blank" rel="noopener">https://www.lambdatest.com</a>.</li>
+</ul>
+
+<!-- General footer -->
+<footer class="site-footer">
+  <small>
+    This is a class project (IT 3203).  
+    <a href="https://validator.w3.org/" target="_blank" rel="noopener">Validate HTML</a> ·  
+    <a href="https://jgzheng.github.io/IT3203/" target="_blank" rel="noopener">Course Site</a>
+  </small>
+</footer>
+
+<!-- End of page - JavaScript functions -->
+<script>
+  const btn = document.querySelector('.menu-toggle');
+  const menu = document.getElementById('main-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('open');
+    });
+  }
+</script>
+</body>
+</html>

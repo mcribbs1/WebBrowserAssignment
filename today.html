@@ -1,0 +1,83 @@
+<!doctype html>
+<!-- Madelyn Cribbs — IT 3203 — today.html -->
+<!-- Use Engligh language - encode characters - fit screen width on mobile devices - set page title - connect external CSS file -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Browsers — Today & Trends</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Start content - create header - show main title - hamburger menu-->
+</head>
+<body>
+<header class="site-header">
+  <h1>Web Browsers — Today & Trends</h1>
+
+  <button class="menu-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="Toggle navigation">☰ Menu</button>
+
+  <!-- Naviagtion - links styled as buttons -->
+  <nav id="main-menu" class="nav-bar" aria-label="Primary navigation">
+    <a href="index.html">Home</a>
+    <a href="history.html">History</a>
+    <a href="mechanics.html">How Browsers Work</a>
+    <a href="today.html">Today & Trends</a>
+    <a href="concepts.html">Key Concepts</a>
+    <a href="about.html">About & Contact</a>
+    <a href="references.html">References</a>
+  </nav>
+</header>
+
+<main class="page-wrap">
+  <!-- Esaay content - Meme - Content inside page-wrap for a consistent width and spacing -->
+  <article class="content">
+    <h2>Today & the Future</h2>
+
+    <p>Today, web browsers have become much more powerful than the early tools created in the 1990s. They no longer simply display text and images but are now capable of running complex software directly in the browser window. Platforms such as YouTube, Zoom, and online gaming services demonstrate how browsers have become central in modern day to day life. One of the defining characteristics of today’s browser landscape is the dominance of Google Chrome. Chrome accounts for roughly two-thirds of worldwide browser usage which means that most websites are tested and optimized primarily for Chrome (Statcounter, “2024 Browser Market Share”). Many other browsers such as Microsoft, Edge, Opera, and Brave are built on Chromium which is the open-source version of Chrome. They do this to ensure compatibility however this trend has led to concerns about lack of diversity in the browser market. If too many browsers rely on the same engine, Google as a company has outsized the control over web standards and innovation. (Cusumano and Yoffie). </p>
+
+    <p>Mobile browsing has also become the main way people access the internet. More than half of the webs traffic comes from smartphones which makes Safari and Chrome especially influential. Safari dominates on iPhones because Apple requires all browsers on iOS to use its WebKit engine while Chrome dominates on Android devices (GSMA Intelligence). Overall, this has influences how websites are designed and many are now built to work better on smaller screens. </p>
+
+    <p>Another important aspect of today’s browsers is their emphasis on privacy and security. Mozilla FireFox introduced Enhanced Tracking Protection which blocks advertisers from following users across different websites. Moreover, Apple’s Safari has Intelligent Tracking Prevention which limits the effectiveness of cookies. Brave takes privacy even further by blocking ads and trackers by default. These changes reflect the growing public concern about data collection and online surveillance (Mozilla Foundation). </p>
+
+    <figure>
+      <img 
+        src="https://www.lambdatest.com/blog/wp-content/uploads/2019/08/pasted-image-0-6.png" 
+        alt="Funny image showing modern web browsers and their market share trends. Pokes fun at how Internet Explorer is slow compared to the others." 
+        class="today-image" 
+      />
+      <figcaption>Modern browser market and feature trends — image courtesy of LambdaTest Blog.</figcaption>
+    </figure>
+
+    <p>At the same time, browsers are deeply integrated into their parent companies’ ecosystems. Chrome connects seamlessly with Google accounts which makes it easy to sync bookmarks and history across all devices. Safari is linked with Apple’s iCloud services and Microsoft Edge integrates with Windows and Microsoft 365. This ecosystem strategy keeps users loyal but also raises questions about how much control these large corporations have over the internet and the users experience (Shklar and Rosen 150).</p>
+
+    <p>Looking to the future, web browsers are likely to continue evolving in ways that will shape how us users interact with the internet and privacy will remain one of the most important areas of improvement. With growing pressure from regulations such as the European Union’s GDPR, browsers will continue to restrict how advertisers track users. Features like cookie blocking and privacy-preserving advertising are likely to become standard (IETF). WebAssembly is another technology that will transform browsers. It allows developers to run complex applications like 3D modeling directly inside the browser at speeds close to native software. This could blur the line between desktop apps and web apps. Soon it will be possible to do almost everything in a browser. </p>
+
+    <p>Artificial intelligence will also influence the future of browsers. Microsoft has already introduced AI assistants in Edge and Google is already experimenting with AI features in Chrome. These tools can summarize articles, suggest relevant information, or even help to generate content. In the future, AI could change how people search and interact with the web, making browsing more conversational and personalized (StatCounter, “2024 Browser Market Share”). </p>
+
+    <p>From the very first browser invented by Tim Berners-Lee to today’s complex tools like Chrome and Safari, web browsers have always been the window into the internet. They began as simple programs for viewing documents but have now grown into powerful platforms that run applications, protect privacy, and help connect users to everything in the digital world. </p>
+  </article>
+</main>
+
+<!-- General footer -->
+<footer class="site-footer">
+  <small>
+    This is a class project (IT 3203).
+    <a href="https://validator.w3.org/" target="_blank" rel="noopener">Validate HTML</a> ·
+    <a href="https://jgzheng.github.io/IT3203/" target="_blank" rel="noopener">Course Site</a>
+  </small>
+</footer>
+
+<!-- End of page - JavaScript functions -->
+<script>
+const btn = document.querySelector('.menu-toggle');
+const menu = document.getElementById('main-menu');
+if (btn && menu) {
+  btn.addEventListener('click', () => {
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    menu.classList.toggle('open');
+  });
+}
+</script>
+</body>
+</html>
