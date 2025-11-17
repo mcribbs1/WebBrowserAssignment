@@ -1,0 +1,268 @@
+<!doctype html>
+<!-- Madelyn Cribbs — IT 3203 — quiz.html -->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Browsers — Quiz</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="site-header">
+  <h1>Web Browsers — Self-Assessment Quiz</h1>
+
+  <button class="menu-toggle"
+          aria-expanded="false"
+          aria-controls="main-menu"
+          aria-label="Toggle navigation">☰ Menu</button>
+
+  <nav id="main-menu" class="nav-bar" aria-label="Primary navigation">
+    <a href="index.html">Home</a>
+    <a href="history.html">History</a>
+    <a href="mechanics.html">How Browsers Work</a>
+    <a href="today.html">Today & Trends</a>
+    <a href="concepts.html">Key Concepts</a>
+    <a href="about.html">About & Contact</a>
+    <a href="references.html">References</a>
+    <a href="quiz.html">Quiz</a>
+  </nav>
+</header>
+
+<main class="page-wrap">
+  <section class="content">
+    <h2>Test what you’ve learned</h2>
+    <p>
+      This short quiz checks your understanding of the main ideas from this site:
+      browser history, how browsers work, and modern features. Answer each
+      question, then submit to see your score and detailed feedback.
+    </p>
+  </section>
+
+  <section class="content">
+    <form id="quiz-form" class="quiz-form" novalidate>
+      <!-- Q1: fill in the blank -->
+      <fieldset class="quiz-question">
+        <legend>1. Fill in the blank (1 point)</legend>
+        <p>
+          The part of a web browser that turns HTML and CSS into the page you see
+          on the screen is called the <strong>________ engine</strong>.
+        </p>
+        <label class="sr-only" for="q1">Your answer for question 1</label>
+        <input type="text" id="q1" name="q1" placeholder="Type your answer here" />
+        <div class="question-feedback" id="q1-feedback"></div>
+      </fieldset>
+
+      <!-- Q2: single-choice -->
+      <fieldset class="quiz-question">
+        <legend>2. Single-choice (1 point)</legend>
+        <p>Which browser currently uses the Blink rendering engine?</p>
+        <div class="option-group">
+          <label><input type="radio" name="q2" value="chrome" /> Chrome</label>
+          <label><input type="radio" name="q2" value="safari" /> Safari</label>
+          <label><input type="radio" name="q2" value="firefox" /> Firefox</label>
+          <label><input type="radio" name="q2" value="oldedge" /> Legacy Microsoft Edge (before 2019)</label>
+        </div>
+        <div class="question-feedback" id="q2-feedback"></div>
+      </fieldset>
+
+      <!-- Q3: single-choice -->
+      <fieldset class="quiz-question">
+        <legend>3. Single-choice (1 point)</legend>
+        <p>Which protocol encrypts most web traffic by default and is recommended for modern sites?</p>
+        <div class="option-group">
+          <label><input type="radio" name="q3" value="http" /> HTTP</label>
+          <label><input type="radio" name="q3" value="https" /> HTTPS</label>
+          <label><input type="radio" name="q3" value="ftp" /> FTP</label>
+          <label><input type="radio" name="q3" value="smtp" /> SMTP</label>
+        </div>
+        <div class="question-feedback" id="q3-feedback"></div>
+      </fieldset>
+
+      <!-- Q4: single-choice -->
+      <fieldset class="quiz-question">
+        <legend>4. Single-choice (1 point)</legend>
+        <p>What does the acronym <strong>DOM</strong> stand for?</p>
+        <div class="option-group">
+          <label><input type="radio" name="q4" value="docobj" /> Document Object Model</label>
+          <label><input type="radio" name="q4" value="dataobj" /> Data Object Map</label>
+          <label><input type="radio" name="q4" value="docorder" /> Document Ordering Method</label>
+          <label><input type="radio" name="q4" value="diskmgr" /> Disk Object Manager</label>
+        </div>
+        <div class="question-feedback" id="q4-feedback"></div>
+      </fieldset>
+
+      <!-- Q5: multi-selection -->
+      <fieldset class="quiz-question">
+        <legend>5. Multi-selection (2 points)</legend>
+        <p>
+          Which of the following are browser features designed to improve security or privacy?
+          <br /><em>Select all that apply.</em>
+        </p>
+        <div class="option-group">
+          <label><input type="checkbox" name="q5" value="private" /> Private / Incognito browsing</label>
+          <label><input type="checkbox" name="q5" value="sandbox" /> Sandboxing web content</label>
+          <label><input type="checkbox" name="q5" value="autoplay" /> Automatically playing audio on every page</label>
+          <label><input type="checkbox" name="q5" value="tracking" /> Blocking cross-site tracking cookies</label>
+          <label><input type="checkbox" name="q5" value="resolution" /> Increasing screen resolution</label>
+        </div>
+        <div class="question-feedback" id="q5-feedback"></div>
+      </fieldset>
+
+      <div class="quiz-actions">
+        <button type="submit">Submit Quiz</button>
+        <button type="button" id="quiz-reset" class="secondary-button">Reset Quiz</button>
+      </div>
+
+      <!-- Overall results area (final score + pass/fail) -->
+      <section id="quiz-results" class="quiz-results" aria-live="polite">
+        <h2 class="results-heading">Your Results</h2>
+        <p id="score-output"></p>
+        <p id="passfail-output"></p>
+      </section>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>Web Browsers Project — IT 3203 — Milestone 2 Quiz</p>
+</footer>
+
+<script>
+  // Hamburger menu
+  const btn = document.querySelector('.menu-toggle');
+  const menu = document.getElementById('main-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      menu.classList.toggle('open');
+    });
+  }
+
+  // Quiz logic
+  const quizForm = document.getElementById('quiz-form');
+  const quizResults = document.getElementById('quiz-results');
+  const resetBtn = document.getElementById('quiz-reset');
+  const scoreOutput = document.getElementById('score-output');
+  const passFailOutput = document.getElementById('passfail-output');
+
+  if (quizForm && quizResults && scoreOutput && passFailOutput) {
+    quizForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // Clear old feedback
+      quizResults.className = 'quiz-results';
+      scoreOutput.textContent = '';
+      passFailOutput.textContent = '';
+      passFailOutput.className = '';
+      document.querySelectorAll('.question-feedback').forEach(el => {
+        el.textContent = '';
+        el.className = 'question-feedback';
+      });
+
+      let score = 0;
+      const totalPoints = 6; // Q1–4: 1 point each, Q5: 2 points
+
+      function setFeedback(id, isCorrect, message) {
+        const box = document.getElementById(id);
+        if (!box) return;
+        box.textContent = message;
+        box.classList.add(isCorrect ? 'correct' : 'incorrect');
+      }
+
+      // Q1: free text
+      const q1Input = quizForm.elements['q1'];
+      const q1Value = (q1Input.value || '').trim().toLowerCase();
+      if (q1Value) {
+        if (q1Value.includes('render')) {
+          score += 1;
+          setFeedback('q1-feedback', true, 'Correct: it is called the rendering engine.');
+        } else {
+          setFeedback('q1-feedback', false, 'Incorrect. The correct answer is "rendering engine".');
+        }
+      } else {
+        setFeedback('q1-feedback', false, 'Please enter an answer. The correct answer is "rendering engine".');
+      }
+
+      // Q2: correct = chrome
+      const q2Value = quizForm.elements['q2'].value;
+      if (q2Value === 'chrome') {
+        score += 1;
+        setFeedback('q2-feedback', true, 'Correct: Chrome uses the Blink engine.');
+      } else {
+        setFeedback('q2-feedback', false, 'Incorrect. Chrome is the browser that uses the Blink engine.');
+      }
+
+      // Q3: correct = https
+      const q3Value = quizForm.elements['q3'].value;
+      if (q3Value === 'https') {
+        score += 1;
+        setFeedback('q3-feedback', true, 'Correct: HTTPS is the secure, encrypted version of HTTP.');
+      } else {
+        setFeedback('q3-feedback', false, 'Incorrect. HTTPS is the secure protocol for web traffic.');
+      }
+
+      // Q4: correct = docobj
+      const q4Value = quizForm.elements['q4'].value;
+      if (q4Value === 'docobj') {
+        score += 1;
+        setFeedback('q4-feedback', true, 'Correct: DOM stands for Document Object Model.');
+      } else {
+        setFeedback('q4-feedback', false, 'Incorrect. DOM stands for Document Object Model.');
+      }
+
+      // Q5: multi-select, correct = private, sandbox, tracking
+      const q5Checks = quizForm.querySelectorAll('input[name="q5"]:checked');
+      const selected = Array.from(q5Checks).map(input => input.value);
+      const correctSet = ['private', 'sandbox', 'tracking'];
+
+      const allCorrect =
+        correctSet.every(v => selected.includes(v)) &&
+        selected.every(v => correctSet.includes(v));
+
+      if (allCorrect) {
+        score += 2;
+        setFeedback(
+          'q5-feedback',
+          true,
+          'Correct: private browsing, sandboxing, and blocking tracking cookies all improve privacy or security.'
+        );
+      } else {
+        setFeedback(
+          'q5-feedback',
+          false,
+          'Partially correct or incorrect. The correct choices are: Private/Incognito browsing, Sandboxing web content, and Blocking cross-site tracking cookies.'
+        );
+      }
+
+      const passed = score >= 4;
+
+      // Show results box
+      quizResults.classList.add('visible');
+
+      // Score line
+      scoreOutput.innerHTML = `<strong>Score:</strong> ${score} / ${totalPoints}`;
+
+      // Pass/fail line
+      passFailOutput.textContent = passed ? 'Result: Pass' : 'Result: Try again';
+      passFailOutput.className = passed ? 'overall-pass' : 'overall-fail';
+    });
+
+    // Reset button
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function () {
+        quizForm.reset();
+        quizResults.className = 'quiz-results';
+        scoreOutput.textContent = '';
+        passFailOutput.textContent = '';
+        passFailOutput.className = '';
+        document.querySelectorAll('.question-feedback').forEach(el => {
+          el.textContent = '';
+          el.className = 'question-feedback';
+        });
+      });
+    }
+  }
+</script>
+</body>
+</html>
