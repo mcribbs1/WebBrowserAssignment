@@ -117,18 +117,8 @@
   </small>
 </footer>
 
-<!-- End of page - JavaScript functions -->
-<script>
-// Simple hamburger toggle for small screens
-const btn = document.querySelector('.menu-toggle');
-const menu = document.getElementById('main-menu');
-if (btn && menu) {
-  btn.addEventListener('click', () => {
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', String(!expanded));
-    menu.classList.toggle('open');
-  });
-}
-</script>
+<script src="script.js"></script>
+
 </body>
+
 </html>
